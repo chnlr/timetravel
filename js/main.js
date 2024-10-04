@@ -56,3 +56,16 @@ document.getElementById('history').addEventListener('click', function() {
   // Trigger a random history event (for future implementation)
   alert('Random historical event!');
 });
+
+// Add a click event listener to the time machine image to log coordinates
+document.getElementById('time-machine').addEventListener('click', function(event) {
+  // Get the bounding box of the image
+  const rect = this.getBoundingClientRect();
+
+  // Calculate the x and y position of the click relative to the image
+  const x = event.clientX - rect.left; 
+  const y = event.clientY - rect.top;
+
+  // Log the coordinates to the console
+  console.log('Click coordinates relative to image: X:', x, 'Y:', y);
+});
