@@ -28,15 +28,21 @@ document.getElementById('time-machine').addEventListener('click', function(event
 
     // If the current image is timemachinemain.png
     if (currentSrc.includes('timemachinemain.png')) {
-      // Region for /images/timemachinenew.png
-      if (x >= 601 && x <= 649 && y >= 546 && y <= 586) {
-        this.src = 'images/timemachinenew.png'; // Change to new image
+      // Region for /images/timemachinemenu.png
+      if (x >= 641 && x <= 695 && y >= 593 && y <= 629) {
+        this.src = 'images/timemachinemenu.png'; // Change to menu image
         return;
       }
 
-      // Region for /images/timemachineprevious.png
-      if (x >= 625 && x <= 674 && y >= 578 && y <= 620) {
+      // Refine the region for /images/timemachineprevious.png to prevent overlap
+      if (x >= 625 && x <= 650 && y >= 578 && y <= 604) {
         this.src = 'images/timemachineprevious.png'; // Change to previous image
+        return;
+      }
+
+      // Region for /images/timemachinenew.png
+      if (x >= 601 && x <= 649 && y >= 546 && y <= 586) {
+        this.src = 'images/timemachinenew.png'; // Change to new image
         return;
       }
 
@@ -58,6 +64,14 @@ document.getElementById('time-machine').addEventListener('click', function(event
     // If the current image is timemachineprevious.png, go back to timemachinemain.png
     if (currentSrc.includes('timemachineprevious.png')) {
       if (x >= 610 && x <= 655 && y >= 619 && y <= 651) { // Use the coordinates you provided
+        this.src = 'images/timemachinemain.png'; // Switch back to the main image
+        return;
+      }
+    }
+
+    // If the current image is timemachinesave.png, go back to timemachinemain.png
+    if (currentSrc.includes('timemachinesave.png')) {
+      if (x >= 605 && x <= 661 && y >= 610 && y <= 647) { // Use the coordinates you provided
         this.src = 'images/timemachinemain.png'; // Switch back to the main image
         return;
       }
