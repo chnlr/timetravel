@@ -30,5 +30,8 @@ const clickableArea = document.getElementById('timeMachineArea');
 clickableArea.addEventListener('click', function() {
   // Change the image source to the new one
   const timeMachineImage = document.getElementById('time-machine');
-  timeMachineImage.src = 'images/timemachinesaved.png'; // Relative path to the image
+  timeMachineImage.src = 'images/timemachinesaved.png'; // Ensure this path is correct
+  timeMachineImage.style.transform = 'scale(3.2)'; // Keep the 3.2 scale
+  timeMachineImage.style.transition = 'transform 0.5s ease'; // Smooth transition
+  document.getElementById('year-text').style.display = 'none'; // Hide the text when clicked
 });
