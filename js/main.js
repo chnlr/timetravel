@@ -27,37 +27,25 @@ document.getElementById('time-machine').addEventListener('click', function(event
     // Refined clickable regions based on the screenshot reference
 
     // Region for /images/timemachinenew.png (NEW)
-    if (
-      (x >= 600 && x <= 645 && y >= 550 && y <= 585) || // Adjusted rectangular region
-      (x >= 607 && x <= 643 && y >= 549 && y <= 572)    // Slight curve correction
-    ) {
+    if (x >= 605 && x <= 640 && y >= 548 && y <= 572) {
       this.src = 'images/timemachinenew.png'; // Change to new image
       return;
     }
 
     // Region for /images/timemachinesave.png (SAVED)
-    if (
-      (x >= 616 && x <= 665 && y >= 575 && y <= 605) || // Expanded rectangle
-      (x >= 617 && x <= 663 && y >= 564 && y <= 599)    // Slight curve correction
-    ) {
+    if (x >= 615 && x <= 640 && y >= 572 && y <= 604) {
       this.src = 'images/timemachinesave.png'; // Change to saved image
       return;
     }
 
     // Region for /images/timemachineprevious.png (PAST)
-    if (
-      (x >= 626 && x <= 670 && y >= 580 && y <= 620) || // Expanded rectangular region
-      (x >= 637 && x <= 665 && y >= 570 && y <= 615)    // Correcting the curve
-    ) {
+    if (x >= 650 && x <= 675 && y >= 580 && y <= 619) {
       this.src = 'images/timemachineprevious.png'; // Change to previous image
       return;
     }
 
     // Region for /images/timemachinemenu.png (MENU)
-    if (
-      (x >= 658 && x <= 688 && y >= 595 && y <= 620) || // Expanded region based on new coordinates
-      (x >= 662 && x <= 684 && y >= 600 && y <= 618)    // Curve correction for accuracy
-    ) {
+    if (x >= 658 && x <= 688 && y >= 595 && y <= 620) {
       this.src = 'images/timemachinemenu.png'; // Change to menu image
       return;
     }
@@ -70,10 +58,14 @@ document.getElementById('time-machine').addEventListener('click', function(event
   const x = event.clientX - rect.left;
   const y = event.clientY - rect.top;
 
-  // Define back button clickable areas for each different image
-  if (this.src.includes('timemachinenew.png') && (x >= 605 && x <= 645 && y >= 625 && y <= 660)) {
+  // Define back button clickable area for /images/timemachinenew.png based on your new coordinates
+  if (this.src.includes('timemachinenew.png') && 
+      (x >= 552 && x <= 607 && y >= 643 && y <= 673)) {
     this.src = 'images/timemachinemain.png'; // Go back to main from new.png
+    return;
   }
+
+  // Other back button areas for saved, previous, and menu images
   if (this.src.includes('timemachinesave.png') && (x >= 605 && x <= 665 && y >= 610 && y <= 645)) {
     this.src = 'images/timemachinemain.png'; // Go back to main from save.png
   }
