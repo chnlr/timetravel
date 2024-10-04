@@ -1,26 +1,3 @@
-/* Disable text selection */
-body, img, a {
-  user-select: none;  /* Disables text selection */
-  -webkit-user-select: none; /* For Safari */
-  -moz-user-select: none;    /* For Firefox */
-  -ms-user-select: none;     /* For IE/Edge */
-}
-
-/* Change cursor to pointer for clickable elements like images and hyperlinks */
-img, area, a {
-  cursor: pointer; /* This ensures the cursor appears as a pointer (hand) over clickable elements */
-}
-
-/* Remove outlines on focus (e.g., links or buttons) */
-a, button {
-  outline: none;
-}
-
-/* Disable default link behavior like underlining */
-a {
-  text-decoration: none;
-}
-
 /* Full page lighter blue background with vignette effect */
 body {
   margin: 0;
@@ -49,9 +26,8 @@ body {
 
 /* Time Machine Image */
 #time-machine {
-  max-width: 80vw; /* Adapt to viewport width */
-  max-height: 80vh; /* Adapt to viewport height */
-  opacity: 0;
+  max-width: 300px;
+  opacity: 0; /* Start hidden */
   margin-top: 20px;
   transition: opacity 2s, transform 0.5s ease; /* Smooth transition for opacity and size */
   cursor: pointer; /* Make it look clickable */
@@ -66,17 +42,5 @@ body {
   100% {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-/* Responsive behavior for smaller screens (mobile) */
-@media (max-width: 768px) {
-  #year-text {
-    font-size: 3rem; /* Reduce font size on mobile */
-  }
-
-  #time-machine {
-    max-width: 90vw; /* Adapt image to smaller screens */
-    max-height: 70vh; /* Maintain height on smaller screens */
   }
 }
