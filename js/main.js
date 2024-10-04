@@ -8,13 +8,46 @@ setTimeout(function() {
 // Track whether the image is scaled or not
 let isScaled = false;
 
-// Add a click event listener to the time machine image for scaling
-document.getElementById('time-machine').addEventListener('click', function() {
+// Add a click event listener to the time machine image
+document.getElementById('time-machine').addEventListener('click', function(event) {
+  const rect = this.getBoundingClientRect();
+  const x = event.clientX - rect.left; // x position within the element
+  const y = event.clientY - rect.top;  // y position within the element
+
+  // Log the coordinates to the console (for debugging)
+  console.log('Click coordinates relative to image: X:', x, 'Y:', y);
+
   // If the image is not scaled yet, scale it and apply smooth transition
   if (!isScaled) {
     this.style.transform = 'scale(3.2)';
     this.style.transition = 'transform 0.5s ease'; // Smooth scale-in effect
     document.getElementById('year-text').style.display = 'none'; // Hide the text
     isScaled = true; // Mark the image as scaled
+  } else {
+    // Handle different clickable regions
+
+    // Region for /images/timemachinenew.png
+    if (
+      (x >= 601 && x <= 649 && y >= 546 && y <= 586)
+    ) {
+      this.src = 'images/timemachinenew.png';
+      return;
+    }
+
+    // Region for /images/timemachineprevious.png
+    if (
+      (x >= 625 && x <= 674 && y >= 578 && y <= 620)
+    ) {
+      this.src = 'images/timemachineprevious.png';
+      return;
+    }
+
+    // Region for /images/timemachinesaved.png
+    if (
+      (x >= 610 && x <= 667 && y >= 561 && y <= 605)
+    ) {
+      this.src = 'images/timemachinesaved.png';
+      return;
+    }
   }
 });
