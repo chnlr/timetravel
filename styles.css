@@ -1,12 +1,26 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #87CEEB; /* Sky blue color */
+  background-image: url('images/vignette.png'); /* Vignette effect image */
+  background-size: cover;
+  background-blend-mode: multiply;
+  font-family: Arial, sans-serif;
+}
+
+#time-machine {
+  width: 300px;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow */
+}
   
   #time-machine {
     width: 300px;
