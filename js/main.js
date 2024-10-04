@@ -49,6 +49,12 @@ document.getElementById('time-machine').addEventListener('click', function(event
       this.src = 'images/timemachinemenu.png'; // Change to menu image
       return;
     }
+
+    // **New Region for /images/timemachinehelp.png** on the /menu page
+    if (this.src.includes('timemachinemenu.png') && x >= 540 && x <= 620 && y >= 520 && y <= 595) {
+      this.src = 'images/timemachinehelp.png'; // Change to help image from menu
+      return;
+    }
   }
 });
 
@@ -58,21 +64,20 @@ document.getElementById('time-machine').addEventListener('click', function(event
   const x = event.clientX - rect.left;
   const y = event.clientY - rect.top;
 
-  // Define back button clickable area for /images/timemachinenew.png based on your new coordinates
-  if (this.src.includes('timemachinenew.png') && 
-      (x >= 552 && x <= 607 && y >= 643 && y <= 673)) {
+  // Define back button clickable area for /images/timemachinenew.png
+  if (this.src.includes('timemachinenew.png') && x >= 552 && x <= 607 && y >= 643 && y <= 673) {
     this.src = 'images/timemachinemain.png'; // Go back to main from new.png
     return;
   }
 
   // Other back button areas for saved, previous, and menu images
-  if (this.src.includes('timemachinesave.png') && (x >= 605 && x <= 665 && y >= 610 && y <= 645)) {
+  if (this.src.includes('timemachinesave.png') && x >= 605 && x <= 665 && y >= 610 && y <= 645) {
     this.src = 'images/timemachinemain.png'; // Go back to main from save.png
   }
-  if (this.src.includes('timemachineprevious.png') && (x >= 605 && x <= 655 && y >= 610 && y <= 650)) {
+  if (this.src.includes('timemachineprevious.png') && x >= 605 && x <= 655 && y >= 610 && y <= 650) {
     this.src = 'images/timemachinemain.png'; // Go back to main from previous.png
   }
-  if (this.src.includes('timemachinemenu.png') && (x >= 610 && x <= 660 && y >= 620 && y <= 660)) {
+  if (this.src.includes('timemachinemenu.png') && x >= 610 && x <= 660 && y >= 620 && y <= 660) {
     this.src = 'images/timemachinemain.png'; // Go back to main from menu.png
   }
 });
