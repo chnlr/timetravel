@@ -25,16 +25,6 @@ document.getElementById('time-machine').addEventListener('click', function(event
   const x = event.clientX - rect.left; // x position within the element
   const y = event.clientY - rect.top;  // y position within the element
 
-  // If the image is scaled up already, check for a click in the defined region to change the image
-  if (isScaled) {
-    // Define a smaller clickable region for image change (adjust coordinates as needed)
-    if (x > 100 && x < 200 && y > 100 && y < 200) {
-      // Change the image source to the "saved" version when this region is clicked
-      this.src = 'images/timemachinesaved.png';
-      return; // Stop further execution after the image is changed
-    }
-  }
-
   // If the image is not scaled yet, scale it
   if (!isScaled) {
     this.style.transform = 'scale(3.2)';
@@ -44,6 +34,13 @@ document.getElementById('time-machine').addEventListener('click', function(event
 
     // Show the inner content (time machine details and history button)
     document.getElementById('inner-content').style.display = 'block';
+  } else {
+    // If the image is scaled up, check for a click in the defined region to change the image
+    // Define a smaller clickable region for image change (adjust coordinates as needed)
+    if (x > 100 && x < 200 && y > 100 && y < 200) {
+      // Change the image source to the "saved" version when this region is clicked
+      this.src = 'images/timemachinesaved.png';
+    }
   }
 });
 
