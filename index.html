@@ -4,11 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Time Traveler's Dilemma</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"> <!-- Anton Font -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="year-text">The Year 2031</div> <!-- This will fade in -->
-  <script src="script.js"></script>
+  <div id="year-text">The Year 2031</div>
+  
+  <!-- Time Machine Image with Image Map -->
+  <img id="time-machine" src="images/timemachinemain.png" alt="Time Machine" usemap="#image-map" style="width:100%;">
+
+  <!-- Image Map -->
+  <map name="image-map">
+    <area target="" alt="Clickable Area" title="Clickable Area" coords="641,615,681,587,692,600,650,628" shape="poly" id="timeMachineArea">
+  </map>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

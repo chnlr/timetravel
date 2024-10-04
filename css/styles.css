@@ -1,0 +1,46 @@
+/* Full page lighter blue background with vignette effect */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ADD8E6;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.3) 100%), #ADD8E6;
+  font-family: 'Anton', sans-serif;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+/* Centering the text, making it bold and larger */
+#year-text {
+  font-size: 5rem;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  animation: fadeInText 3s forwards;
+}
+
+/* Time Machine Image */
+#time-machine {
+  max-width: 300px;
+  opacity: 0;
+  margin-top: 20px;
+  transition: opacity 2s, transform 0.5s ease; /* Smooth transition for opacity and size */
+  cursor: pointer; /* Make it look clickable */
+}
+
+/* Keyframes for fade-in text animation */
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
