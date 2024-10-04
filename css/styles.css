@@ -1,3 +1,26 @@
+/* Disable text selection */
+body, img, a {
+  user-select: none;  /* Disables text selection */
+  -webkit-user-select: none; /* For Safari */
+  -moz-user-select: none;    /* For Firefox */
+  -ms-user-select: none;     /* For IE/Edge */
+}
+
+/* Change cursor to pointer for clickable elements like images and hyperlinks */
+img, area, a {
+  cursor: pointer; /* This ensures the cursor appears as a pointer (hand) over clickable elements */
+}
+
+/* Remove outlines on focus (e.g., links or buttons) */
+a, button {
+  outline: none;
+}
+
+/* Disable default link behavior like underlining */
+a {
+  text-decoration: none;
+}
+
 /* Full page lighter blue background with vignette effect */
 body {
   margin: 0;
