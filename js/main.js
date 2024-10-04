@@ -14,24 +14,23 @@ setTimeout(function() {
 }, 5000); // 5000 milliseconds = 5 seconds
 
 // Add a click event listener to the time machine image
-document.getElementById('time-machine').addEventListener('click', function() {
+document.getElementById('time-machine').addEventListener('click', function(event) {
+  // Get the click position relative to the image
+  const rect = this.getBoundingClientRect();
+  const x = event.clientX - rect.left; // x position within the element
+  const y = event.clientY - rect.top;  // y position within the element
+
+  // Define the specific region for switching the image (adjust these coordinates)
+  if (x > 100 && x < 200 && y > 100 && y < 200) {
+    // Change to the "saved" image
+    this.src = 'images/timemachinesaved.png';
+    return; // Exit the function to prevent scaling after switching images
+  }
+
+  // If the user clicks anywhere else, apply the scaling behavior
+  this.style.transform = 'scale(3.2)'; // Scale up the main image
+  this.style.transition = 'transform 0.5s ease'; // Smooth transition for scaling
+  
   // Make the year text disappear
   document.getElementById('year-text').style.display = 'none';
-  
-  // Enlarge the time machine image
-  this.style.transform = 'scale(3.2)'; // Scale it up
-  this.style.transition = 'transform 0.5s ease'; // Smooth transition
-});
-
-// Get the clickable area (from the image map)
-const clickableArea = document.getElementById('timeMachineArea');
-
-// Add an event listener to change the image when the area is clicked
-clickableArea.addEventListener('click', function() {
-  // Change the image source to the new one
-  const timeMachineImage = document.getElementById('time-machine');
-  timeMachineImage.src = 'images/timemachinesaved.png'; // Ensure this path is correct
-  timeMachineImage.style.transform = 'scale(3.2)'; // Keep the 3.2 scale
-  timeMachineImage.style.transition = 'transform 0.5s ease'; // Smooth transition
-  document.getElementById('year-text').style.display = 'none'; // Hide the text when clicked
 });
