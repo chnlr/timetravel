@@ -23,5 +23,64 @@ document.getElementById('time-machine').addEventListener('click', function(event
     this.style.transition = 'transform 0.5s ease'; // Smooth scale-in effect
     document.getElementById('year-text').style.display = 'none'; // Hide the text
     isScaled = true; // Mark the image as scaled
+  } else {
+    // Refined clickable regions based on the screenshot reference
+
+    // Region for /images/timemachinenew.png (NEW)
+    if (
+      (x >= 600 && x <= 645 && y >= 550 && y <= 585) || // Adjusted rectangular region
+      (x >= 607 && x <= 643 && y >= 549 && y <= 572)    // Slight curve correction
+    ) {
+      this.src = 'images/timemachinenew.png'; // Change to new image
+      return;
+    }
+
+    // Region for /images/timemachinesave.png (SAVED)
+    if (
+      (x >= 616 && x <= 665 && y >= 575 && y <= 605) || // Expanded rectangle
+      (x >= 617 && x <= 663 && y >= 564 && y <= 599)    // Slight curve correction
+    ) {
+      this.src = 'images/timemachinesave.png'; // Change to saved image
+      return;
+    }
+
+    // Region for /images/timemachineprevious.png (PAST)
+    if (
+      (x >= 626 && x <= 670 && y >= 580 && y <= 620) || // Expanded rectangular region
+      (x >= 637 && x <= 665 && y >= 570 && y <= 615)    // Correcting the curve
+    ) {
+      this.src = 'images/timemachineprevious.png'; // Change to previous image
+      return;
+    }
+
+    // Region for /images/timemachinemenu.png (MENU)
+    if (
+      (x >= 658 && x <= 688 && y >= 595 && y <= 620) || // Expanded region based on new coordinates
+      (x >= 662 && x <= 684 && y >= 600 && y <= 618)    // Curve correction for accuracy
+    ) {
+      this.src = 'images/timemachinemenu.png'; // Change to menu image
+      return;
+    }
+  }
+});
+
+// Add a click event listener for the "back" button in other images to return to main.png
+document.getElementById('time-machine').addEventListener('click', function(event) {
+  const rect = this.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
+
+  // Define back button clickable areas for each different image
+  if (this.src.includes('timemachinenew.png') && (x >= 605 && x <= 645 && y >= 625 && y <= 660)) {
+    this.src = 'images/timemachinemain.png'; // Go back to main from new.png
+  }
+  if (this.src.includes('timemachinesave.png') && (x >= 605 && x <= 665 && y >= 610 && y <= 645)) {
+    this.src = 'images/timemachinemain.png'; // Go back to main from save.png
+  }
+  if (this.src.includes('timemachineprevious.png') && (x >= 605 && x <= 655 && y >= 610 && y <= 650)) {
+    this.src = 'images/timemachinemain.png'; // Go back to main from previous.png
+  }
+  if (this.src.includes('timemachinemenu.png') && (x >= 610 && x <= 660 && y >= 620 && y <= 660)) {
+    this.src = 'images/timemachinemain.png'; // Go back to main from menu.png
   }
 });
