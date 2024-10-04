@@ -40,7 +40,7 @@ document.getElementById('time-machine').addEventListener('click', function(event
         return;
       }
 
-      // Region for /images/timemachinesaved.png
+      // Region for /images/timemachinesave.png
       if (x >= 610 && x <= 667 && y >= 561 && y <= 605) {
         this.src = 'images/timemachinesave.png'; // Change to saved image
         return;
@@ -50,6 +50,14 @@ document.getElementById('time-machine').addEventListener('click', function(event
     // If the current image is timemachinenew.png, go back to timemachinemain.png
     if (currentSrc.includes('timemachinenew.png')) {
       if (x >= 557 && x <= 629 && y >= 564 && y <= 682) { // Use the coordinates you provided
+        this.src = 'images/timemachinemain.png'; // Switch back to the main image
+        return;
+      }
+    }
+
+    // If the current image is timemachineprevious.png, go back to timemachinemain.png
+    if (currentSrc.includes('timemachineprevious.png')) {
+      if (x >= 610 && x <= 655 && y >= 619 && y <= 651) { // Use the coordinates you provided
         this.src = 'images/timemachinemain.png'; // Switch back to the main image
         return;
       }
