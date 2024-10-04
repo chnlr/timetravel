@@ -24,30 +24,35 @@ document.getElementById('time-machine').addEventListener('click', function(event
     document.getElementById('year-text').style.display = 'none'; // Hide the text
     isScaled = true; // Mark the image as scaled
   } else {
-    // Handle different clickable regions
+    const currentSrc = this.src;
 
-    // Region for /images/timemachinenew.png
-    if (
-      (x >= 601 && x <= 649 && y >= 546 && y <= 586)
-    ) {
-      this.src = 'images/timemachinenew.png';
-      return;
+    // If the current image is timemachinemain.png
+    if (currentSrc.includes('timemachinemain.png')) {
+      // Region for /images/timemachinenew.png
+      if (x >= 601 && x <= 649 && y >= 546 && y <= 586) {
+        this.src = 'images/timemachinenew.png'; // Change to new image
+        return;
+      }
+
+      // Region for /images/timemachineprevious.png
+      if (x >= 625 && x <= 674 && y >= 578 && y <= 620) {
+        this.src = 'images/timemachineprevious.png'; // Change to previous image
+        return;
+      }
+
+      // Region for /images/timemachinesaved.png
+      if (x >= 610 && x <= 667 && y >= 561 && y <= 605) {
+        this.src = 'images/timemachinesave.png'; // Change to saved image
+        return;
+      }
     }
 
-    // Region for /images/timemachineprevious.png
-    if (
-      (x >= 625 && x <= 674 && y >= 578 && y <= 620)
-    ) {
-      this.src = 'images/timemachineprevious.png';
-      return;
-    }
-
-    // Region for /images/timemachinesaved.png
-    if (
-      (x >= 610 && x <= 667 && y >= 561 && y <= 605)
-    ) {
-      this.src = 'images/timemachinesaved.png';
-      return;
+    // If the current image is timemachinenew.png, go back to timemachinemain.png
+    if (currentSrc.includes('timemachinenew.png')) {
+      if (x >= 557 && x <= 629 && y >= 564 && y <= 682) { // Use the coordinates you provided
+        this.src = 'images/timemachinemain.png'; // Switch back to the main image
+        return;
+      }
     }
   }
 });
