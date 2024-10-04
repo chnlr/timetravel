@@ -14,7 +14,7 @@ document.getElementById('time-machine').addEventListener('click', function(event
   const x = event.clientX - rect.left; // x position within the element
   const y = event.clientY - rect.top;  // y position within the element
 
-  // Log the coordinates to the console (for debugging)
+  // Log the coordinates to the console (for debugging and tracking)
   console.log('Click coordinates relative to image: X:', x, 'Y:', y);
 
   // If the image is not scaled yet, scale it and apply smooth transition
