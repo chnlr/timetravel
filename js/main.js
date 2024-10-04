@@ -16,7 +16,7 @@ setTimeout(function() {
 }, 3200); // 5000 milliseconds = 3.2 seconds
 
 // Track whether the image is scaled or not
-let isScaled = false; 
+let isScaled = false;
 
 // Add a click event listener to the time machine image
 document.getElementById('time-machine').addEventListener('click', function(event) {
@@ -35,11 +35,18 @@ document.getElementById('time-machine').addEventListener('click', function(event
     // Show the inner content (time machine details and history button)
     document.getElementById('inner-content').style.display = 'block';
   } else {
-    // If the image is scaled up, check for a click in the defined region to change the image
-    // Define a smaller clickable region for image change (adjust coordinates as needed)
-    if (x > 100 && x < 200 && y > 100 && y < 200) {
+    // If the image is scaled, check for a click in the defined region (after scaling)
+    const scaledX = x / 3.2; // Adjust the click to account for scaling
+    const scaledY = y / 3.2; // Adjust the click to account for scaling
+
+    // Define the clickable region for image change (use your coordinates)
+    if (
+      (scaledX >= 2182 && scaledX <= 2213 && scaledY >= 1877 && scaledY <= 1925) ||
+      (scaledX >= 2049 && scaledX <= 2078 && scaledY >= 1970 && scaledY <= 2013)
+    ) {
       // Change the image source to the "saved" version when this region is clicked
       this.src = 'images/timemachinesaved.png';
+      return; // Stop further execution after the image is changed
     }
   }
 });
