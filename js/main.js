@@ -41,8 +41,8 @@ document.getElementById('time-machine').addEventListener('click', function(event
 
     // Define the clickable region for image change (use your coordinates)
     if (
-      (scaledX >= 2182 && scaledX <= 2213 && scaledY >= 1877 && scaledY <= 1925) ||
-      (scaledX >= 2049 && scaledX <= 2078 && scaledY >= 1970 && scaledY <= 2013)
+      (x >= 2051 && x <= 2077 && y >= 1968 && y <= 2013) ||
+      (x >= 2211 && x <= 2186 && y >= 1923 && y <= 1875)
     ) {
       // Change the image source to the "saved" version when this region is clicked
       this.src = 'images/timemachinesaved.png';
