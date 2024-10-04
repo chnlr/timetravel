@@ -26,9 +26,7 @@ body {
 
 /* Time Machine Image */
 #time-machine {
-  width: 100%;
-  max-width: 800px; /* Limit image width */
-  height: auto;
+  max-width: 300px;
   opacity: 0; /* Start hidden */
   margin-top: 20px;
   transition: opacity 2s, transform 0.5s ease; /* Smooth transition for opacity and size */
@@ -44,17 +42,5 @@ body {
   100% {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-/* Media Query for smaller screens (Mobile) */
-@media (max-width: 768px) {
-  #year-text {
-    font-size: 3rem; /* Reduce font size for mobile */
-  }
-
-  #time-machine {
-    max-width: 100%; /* Make image fill screen width */
-    height: auto; /* Maintain aspect ratio */
   }
 }
