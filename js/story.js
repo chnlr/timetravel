@@ -1,6 +1,6 @@
-// Track whether the holding image is shown and if the main image has appeared
 let isHoldingShown = false;
 let isMainShown = false;
+let isOptionsShown = false; // To track if options are shown
 
 // Function to handle the initial sequence when the page loads
 function startStorySequence() {
@@ -46,6 +46,29 @@ function startStorySequence() {
       const secondCaption = document.getElementById('second-caption');
       if (secondCaption) secondCaption.remove(); // Remove the second caption
       isMainShown = true;
+
+      // Step 4: Show "let's look around" caption with similar styling as previous captions
+      setTimeout(function() {
+        const thirdCaption = document.createElement('div');
+        thirdCaption.id = 'third-caption';
+        thirdCaption.innerText = "let's look around (click on an option)";
+        thirdCaption.style.opacity = '0';
+        thirdCaption.style.position = 'absolute';
+        thirdCaption.style.bottom = '40px'; // Adjust position similar to previous captions
+        thirdCaption.style.left = '50%'; // Center horizontally
+        thirdCaption.style.transform = 'translateX(-50%)'; // Center caption
+        thirdCaption.style.fontSize = '2rem'; // Match previous caption font size
+        thirdCaption.style.color = '#fff'; // Keep consistent with the other captions
+        thirdCaption.style.textAlign = 'center';
+        thirdCaption.style.transition = 'opacity 0.8s ease'; // Keep fade-in effect
+        document.body.appendChild(thirdCaption);
+
+        // Fade in the third caption
+        setTimeout(function() {
+          thirdCaption.style.opacity = '1';
+          isOptionsShown = true; // Options are now available for interaction
+        }, 100); // Slight delay for the fade-in effect
+      }, 2000); // Show the third caption 2 seconds after the main image appears
     }
   });
 }
