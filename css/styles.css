@@ -33,28 +33,32 @@ body {
   cursor: pointer; /* Make it look clickable */
 }
 
-/* Caption styling */
+/* First caption styling */
 #caption {
-  font-size: 2rem; /* Larger font size */
-  color: #FFFFFF; /* White text */
-  text-align: center; /* Align text to the left */
-  position: relative; /* Use relative positioning */
-  margin-top: 130px; /* Move the text lower */
-  margin-left: 20px; /* Move the text to the left */
-  font-family: 'Roboto', sans-serif; /* Improved font style */
-  font-weight: 400; /* Normal weight for smooth look */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
-}
-
-#second-caption {
-  font-size: 1rem; /* Match the style of the first caption */
+  font-size: 2rem;
   color: #FFFFFF;
-  text-align: center;
-  position: relative; /* Use relative positioning */
-  margin-top: 70px;
+  text-align: left;
+  position: absolute; /* Change to absolute */
+  bottom: 120px; /* Move the caption below the image */
+  left: 80px; /* Adjust the position to the left */
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  pointer-events: none; /* Prevent any interaction with text */
+}
+
+/* Second caption styling */
+#second-caption {
+  font-size: 2rem;
+  color: #FFFFFF;
+  text-align: left;
+  position: absolute; /* Change to absolute */
+  bottom: 80px; /* Place the second caption lower */
+  left: 60px; /* Adjust the position to the left */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  pointer-events: none; /* Prevent any interaction with text */
 }
 
 

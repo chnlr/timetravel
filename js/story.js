@@ -8,25 +8,21 @@ function startStorySequence() {
   setTimeout(function() {
     const timeMachine = document.getElementById('time-machine');
     timeMachine.style.opacity = '1'; // Fade in the time machine image
-    timeMachine.style.transition = 'opacity 1.5s ease'; // Apply fade-in effect
+    timeMachine.style.transition = 'opacity 1.5s ease'; // Apply fade-in effect for the initial load only
   }, 3200); // 3.2 seconds
 
   // Step 2: When the time machine is clicked, switch to the holding image
   document.getElementById('time-machine').addEventListener('click', function() {
     const timeMachine = document.getElementById('time-machine');
 
-    // Smooth transition function to change images
-    function smoothTransition(newSrc) {
-      timeMachine.style.opacity = '0'; // Fade out
-      setTimeout(function() {
-        timeMachine.src = newSrc; // Change image
-        timeMachine.style.opacity = '1'; // Fade back in
-      }, 500); // Wait for fade-out to complete before switching image
+    // Immediate image change function (no smooth transition)
+    function changeImage(newSrc) {
+      timeMachine.src = newSrc; // Instantly change the image
     }
 
     // If holding image isn't shown yet, switch to holding image
     if (!isHoldingShown && !isMainShown) {
-      smoothTransition('images/timemachineholding.png');
+      changeImage('images/timemachineholding.png');
       document.getElementById('caption').innerText = 'huh? what is this?'; // Show the first caption
       isHoldingShown = true;
 
@@ -36,7 +32,7 @@ function startStorySequence() {
         secondCaption.id = 'second-caption';
         secondCaption.innerText = "let me look closer (click)";
         secondCaption.style.opacity = '0';
-        secondCaption.style.transition = 'opacity 0.8s ease';
+        secondCaption.style.transition = 'opacity 0.8s ease'; // Keep fade-in for captions
         document.body.appendChild(secondCaption);
 
         // Fade in the second caption
@@ -45,7 +41,7 @@ function startStorySequence() {
         }, 100); // Slight delay for the fade-in effect
       }, 2000); // 2 seconds after the first caption
     } else if (isHoldingShown && !isMainShown) {
-      smoothTransition('images/timemachinemain.png');
+      changeImage('images/timemachinemain.png');
       document.getElementById('caption').innerText = ''; // Clear the first caption
       const secondCaption = document.getElementById('second-caption');
       if (secondCaption) secondCaption.remove(); // Remove the second caption
