@@ -26,13 +26,11 @@ body {
 
 /* Time Machine Image */
 #time-machine {
-  max-width: 300px; /* Original size when first loaded */
-  width: 100%;      /* Ensures the image scales relative to the container */
-  height: auto;     /* Maintains aspect ratio */
-  opacity: 0;       /* Start hidden */
+  max-width: 300px;
+  opacity: 0; /* Start hidden */
   margin-top: 20px;
   transition: opacity 2s, transform 0.5s ease; /* Smooth transition for opacity and size */
-  cursor: pointer;  /* Make it look clickable */
+  cursor: pointer; /* Make it look clickable */
 }
 
 /* Keyframes for fade-in text animation */
@@ -44,17 +42,5 @@ body {
   100% {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-/* Media Query for smaller screens (Mobile) */
-@media (max-width: 768px) {
-  #year-text {
-    font-size: 3rem; /* Reduce font size for mobile */
-  }
-
-  #time-machine {
-    max-width: 90%; /* Make image fill screen width for mobile */
-    height: auto;   /* Maintain aspect ratio */
   }
 }
