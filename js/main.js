@@ -81,3 +81,32 @@ document.getElementById('time-machine').addEventListener('click', function(event
     this.src = 'images/timemachinemain.png'; // Go back to main from menu.png
   }
 });
+
+// Track if past.js has been triggered
+let isPastTriggered = false;
+
+// Detect if the user clicked the "Previous" area
+document.getElementById('time-machine').addEventListener('click', function(event) {
+  const rect = this.getBoundingClientRect();
+  const x = event.clientX - rect.left; // x position within the element
+  const y = event.clientY - rect.top;  // y position within the element
+
+  // Detect if the user clicked the "Previous" area (adjust coordinates as needed)
+  if (x >= 625 && x <= 674 && y >= 578 && y <= 620) {
+    // Load past.js every time the previous path is clicked
+    console.log("Loading past.js...");
+    loadPastScript(); // Always load past.js on every click
+  }
+});
+
+function loadPastScript() {
+  const script = document.createElement('script');
+  script.src = 'js/past.js'; // Load past.js dynamically
+  script.onload = function() {
+    console.log("past.js loaded successfully!");
+  };
+  script.onerror = function() {
+    console.error("Error loading past.js!");
+  };
+  document.body.appendChild(script);
+}
