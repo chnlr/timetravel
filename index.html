@@ -9,29 +9,14 @@
 <body>
   <div id="year-text">The Year Is 2031</div>
 
-  <!-- Time Machine Image with Image Map -->
-  <img id="time-machine" src="images/timemachinemain.png" usemap="#image-map" alt="Time Machine" style="width:100%;">
+  <!-- Time Machine Image -->
+  <img id="time-machine" src="images/timemachinemain.png" alt="Time Machine" style="width:100%;">
 
   <!-- Caption below the image -->
   <div id="caption"></div>
 
-  <!-- Image Map for clickable areas -->
-  <map name="image-map">
-    <!-- Area for /images/timemachinenew.png -->
-    <area target="" alt="New" title="New" href="images/timemachinenew.png" 
-          coords="601,573,606,586,649,558,643,546,607,571" shape="poly">
-
-    <!-- Area for /images/timemachineprevious.png -->
-    <area target="" alt="Previous" title="Previous" href="images/timemachineprevious.png" 
-          coords="625,609,631,620,674,593,666,578,635,617" shape="poly">
-
-    <!-- Area for /images/timemachinesaved.png -->
-    <area target="" alt="Save" title="Save" href="images/timemachinesave.png" 
-          coords="610,592,620,605,667,577,658,561,612,590" shape="poly">
-  </map>
-
-  <!-- Scripts in the correct order -->
-  <script src="js/story.js"></script> <!-- Story first -->
+  <!-- Include only story.js for now -->
+  <script src="js/story.js"></script>
   <script src="js/main.js"></script> <!-- Main paths like 'new', 'menu', etc. -->
 </body>
 </html>
