@@ -34,9 +34,9 @@ function startStorySequence() {
       setTimeout(function() {
         const secondCaption = document.createElement('div');
         secondCaption.id = 'second-caption';
-        secondCaption.innerText = "let's look closer (click)";
+        secondCaption.innerText = "let me look closer (click)";
         secondCaption.style.opacity = '0';
-        secondCaption.style.transition = 'opacity 1.5s ease';
+        secondCaption.style.transition = 'opacity 0.8s ease';
         document.body.appendChild(secondCaption);
 
         // Fade in the second caption
