@@ -27,8 +27,6 @@ document.getElementById('time-machine').addEventListener('click', function(event
     document.getElementById('year-text').style.display = 'none'; // Hide the text
     isScaled = true; // Mark the image as scaled
   } else {
-    // Refined clickable regions specific to each image
-
     // Check if the current image is /images/timemachinemain.png
     if (currentImageSrc.includes('timemachinemain.png')) {
       // Region for /images/timemachinenew.png (NEW)
@@ -56,22 +54,41 @@ document.getElementById('time-machine').addEventListener('click', function(event
       }
     }
 
-    // Check if the current image is /images/timemachinemenu.png
-    if (currentImageSrc.includes('timemachinemenu.png')) {
-      // Region for /images/timemachinesettings.png (SETTINGS)
-      if (x >= 549 && x <= 663 && y >= 558 && y <= 624) {
-        this.src = 'images/timemachinesettings.png'; // Change to settings image
-        return;
-      }
-
-      // Region for /images/timemachinehelp.png (HELP)
-      if (x >= 540 && x <= 620 && y >= 520 && y <= 595) {
-        this.src = 'images/timemachinehelp.png'; // Change to help image from menu
+    // Check if the current image is /images/timemachinesave.png (SAVED)
+    if (currentImageSrc.includes('timemachinesave.png')) {
+      // Coordinates for saved.png
+      if (
+        (x >= 614 && x <= 662 && y >= 561 && y <= 624) || // Adjusted to match saved.png click area
+        (x >= 621 && x <= 654 && y >= 561 && y <= 601)
+      ) {
+        console.log("Saved area clicked!");
         return;
       }
     }
 
-    // Additional checks for other images can be added here, following the same structure
+    // Check if the current image is /images/timemachineprevious.png (PAST)
+    if (currentImageSrc.includes('timemachineprevious.png')) {
+      // Coordinates for past.png
+      if (
+        (x >= 626 && x <= 673 && y >= 578 && y <= 620) ||
+        (x >= 616 && x <= 665 && y >= 590 && y <= 616)
+      ) {
+        console.log("Past area clicked!");
+        return;
+      }
+    }
+
+    // Check if the current image is /images/timemachinemenu.png (MENU)
+    if (currentImageSrc.includes('timemachinemenu.png')) {
+      // Coordinates for menu.png
+      if (
+        (x >= 549 && x <= 691 && y >= 558 && y <= 624) ||
+        (x >= 661 && x <= 691 && y >= 609 && y <= 620)
+      ) {
+        console.log("Menu area clicked!");
+        return;
+      }
+    }
   }
 });
 
@@ -91,15 +108,12 @@ document.getElementById('time-machine').addEventListener('click', function(event
   // Other back button areas for saved, previous, and menu images
   if (currentImageSrc.includes('timemachinesave.png') && x >= 605 && x <= 665 && y >= 610 && y <= 645) {
     this.src = 'images/timemachinemain.png'; // Go back to main from save.png
-    return;
   }
   if (currentImageSrc.includes('timemachineprevious.png') && x >= 605 && x <= 655 && y >= 610 && y <= 650) {
     this.src = 'images/timemachinemain.png'; // Go back to main from previous.png
-    return;
   }
   if (currentImageSrc.includes('timemachinemenu.png') && x >= 610 && x <= 660 && y >= 620 && y <= 660) {
     this.src = 'images/timemachinemain.png'; // Go back to main from menu.png
-    return;
   }
 });
 
