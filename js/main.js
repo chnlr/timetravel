@@ -180,3 +180,72 @@ document.getElementById('time-machine').addEventListener('click', function(event
     }
   }
 });
+
+// Define the object to track clicks for each region on the main image
+const clickedRegions = {
+  new: false,
+  saved: false,
+  past: false,
+  menu: false
+};
+
+// Function to check if all regions have been clicked
+function checkIfAllClicked() {
+  return clickedRegions.new && clickedRegions.saved && clickedRegions.past && clickedRegions.menu;
+}
+
+// Add event listener to the time machine image
+document.getElementById('time-machine').addEventListener('click', function(event) {
+  const rect = this.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
+  const currentImageSrc = this.src;
+
+  // Ensure this only applies to the main image
+  if (currentImageSrc.includes('timemachinemain.png')) {
+    // Track clicks on each region
+
+    // Region for /images/timemachinenew.png (NEW)
+    if (x >= 605 && x <= 640 && y >= 548 && y <= 572) {
+      this.src = 'images/timemachinenew.png';
+      clickedRegions.new = true; // Mark new region as clicked
+    }
+
+    // Region for /images/timemachinesave.png (SAVED)
+    if (x >= 615 && x <= 640 && y >= 572 && y <= 604) {
+      this.src = 'images/timemachinesave.png';
+      clickedRegions.saved = true; // Mark saved region as clicked
+    }
+
+    // Region for /images/timemachineprevious.png (PAST)
+    if (x >= 650 && x <= 675 && y >= 580 && y <= 619) {
+      this.src = 'images/timemachineprevious.png';
+      clickedRegions.past = true; // Mark past region as clicked
+    }
+
+    // Region for /images/timemachinemenu.png (MENU)
+    if (x >= 658 && x <= 688 && y >= 595 && y <= 620) {
+      this.src = 'images/timemachinemenu.png';
+      clickedRegions.menu = true; // Mark menu region as clicked
+    }
+
+    // After each click, check if all regions are clicked
+    if (checkIfAllClicked()) {
+      console.log('All regions clicked! Starting the new story...');
+      loadNewStoryScript(); // Trigger the next part of the story
+    }
+  }
+});
+
+// Function to load the new story script (newstory.js)
+function loadNewStoryScript() {
+  const script = document.createElement('script');
+  script.src = 'js/newstory.js'; // Load newstory.js dynamically
+  script.onload = function() {
+    console.log("newstory.js loaded successfully!");
+  };
+  script.onerror = function() {
+    console.error("Error loading newstory.js!");
+  };
+  document.body.appendChild(script);
+}

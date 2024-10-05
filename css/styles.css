@@ -71,3 +71,13 @@ body {
     transform: translateY(0);
   }
 }
+#new-story-caption {
+  position: absolute;
+  bottom: 50px; /* Adjust position */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: white;
+  font-family: 'Anton', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
