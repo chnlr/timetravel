@@ -34,16 +34,19 @@ body {
 }
 
 #caption {
+  font-size: 2rem;
+  color: white;
   position: absolute;
-  bottom: 120px;
-  left: 80px;
-  /* Ensure the text is not overlapping */
+  top: 500px; /* Adjust as necessary */
+  left: 50px;
 }
 
 #second-caption {
+  font-size: 1.5rem;
+  color: white;
   position: absolute;
-  bottom: 80px;
-  left: 60px;
+  top: 550px; /* Adjust as necessary */
+  left: 50px;
 }
 
 

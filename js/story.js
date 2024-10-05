@@ -1,51 +1,45 @@
 let isHoldingShown = false;
 let isMainShown = false;
 
-// Function to handle the initial sequence when the page loads
 function startStorySequence() {
-  // Step 1: Fade in the year text and the time machine
   setTimeout(function() {
     const timeMachine = document.getElementById('time-machine');
-    timeMachine.style.opacity = '1'; // Fade in the time machine image
-    timeMachine.style.transition = 'opacity 1.5s ease'; // Apply fade-in effect for the initial load only
-  }, 3200); // 3.2 seconds
+    timeMachine.style.opacity = '1';
+    timeMachine.style.transition = 'opacity 1.5s ease';
+  }, 3200);
 
-  // Step 2: When the time machine is clicked, switch to the holding image
+  // Listen for click event
   document.getElementById('time-machine').addEventListener('click', function() {
     const timeMachine = document.getElementById('time-machine');
 
     if (!isHoldingShown && !isMainShown) {
-      // Change image to holding.png
       timeMachine.src = 'images/timemachineholding.png';
-      document.getElementById('caption').innerText = 'huh? what is this?'; // Show first caption
+      document.getElementById('caption').innerText = 'huh? what is this?';
       isHoldingShown = true;
 
-      // Step 3: Show the second caption after 2 seconds
       setTimeout(function() {
         const secondCaption = document.createElement('div');
         secondCaption.id = 'second-caption';
         secondCaption.innerText = "let me look closer (click)";
         secondCaption.style.opacity = '0';
-        secondCaption.style.transition = 'opacity 0.8s ease'; // Keep fade-in for captions
+        secondCaption.style.transition = 'opacity 0.8s ease';
         document.body.appendChild(secondCaption);
 
-        // Fade in the second caption
         setTimeout(function() {
           secondCaption.style.opacity = '1';
-        }, 100); // Slight delay for the fade-in effect
-      }, 2000); // 2 seconds after the first caption
+        }, 100);
+      }, 2000);
     } else if (isHoldingShown && !isMainShown) {
-      // Change to the main image
       timeMachine.src = 'images/timemachinemain.png';
-      document.getElementById('caption').innerText = ''; // Clear first caption
+      document.getElementById('caption').innerText = '';
       const secondCaption = document.getElementById('second-caption');
-      if (secondCaption) secondCaption.remove(); // Remove second caption
+      if (secondCaption) secondCaption.remove();
       isMainShown = true;
     }
   });
 }
 
-// Initialize the story sequence when the window loads
+// Start the story sequence when the page loads
 window.onload = function() {
   startStorySequence();
 };
