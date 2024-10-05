@@ -161,3 +161,22 @@ function loadPastScript() {
   };
   document.body.appendChild(script);
 }
+
+// Add a click event listener for the settings image to go back to main.png
+document.getElementById('time-machine').addEventListener('click', function(event) {
+  const rect = this.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
+  const currentImageSrc = this.src;
+
+  // Detect if the current image is /images/timemachinesettings.png
+  if (currentImageSrc.includes('timemachinesettings.png')) {
+    // Check if the click falls within the provided coordinates for going back to main.png
+    if (
+      (x >= 615 && x <= 633 && y >= 501 && y <= 517)
+    ) {
+      this.src = 'images/timemachinemain.png'; // Go back to main from settings.png
+      return;
+    }
+  }
+});
