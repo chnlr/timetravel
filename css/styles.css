@@ -33,32 +33,17 @@ body {
   cursor: pointer; /* Make it look clickable */
 }
 
-/* First caption styling */
 #caption {
-  font-size: 2rem;
-  color: #FFFFFF;
-  text-align: left;
-  position: absolute; /* Change to absolute */
-  bottom: 120px; /* Move the caption below the image */
-  left: 80px; /* Adjust the position to the left */
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  pointer-events: none; /* Prevent any interaction with text */
+  position: absolute;
+  bottom: 120px;
+  left: 80px;
+  /* Ensure the text is not overlapping */
 }
 
-/* Second caption styling */
 #second-caption {
-  font-size: 2rem;
-  color: #FFFFFF;
-  text-align: left;
-  position: absolute; /* Change to absolute */
-  bottom: 80px; /* Place the second caption lower */
-  left: 60px; /* Adjust the position to the left */
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  pointer-events: none; /* Prevent any interaction with text */
+  position: absolute;
+  bottom: 80px;
+  left: 60px;
 }
 
 
