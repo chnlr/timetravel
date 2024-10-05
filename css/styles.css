@@ -8,7 +8,9 @@ body {
   align-items: center;
   background-color: #ADD8E6;
   background: radial-gradient(circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.3) 100%), #ADD8E6;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Courier New', Courier, monospace; /* Fixed font-family syntax */
+  font-style: italic; /* Applied italic styling */
+  font-weight: bold; /* Applied bold styling */
   overflow: hidden;
   flex-direction: column;
 }
@@ -37,6 +39,9 @@ body {
   font-size: 2rem;
   color: white;
   position: absolute;
+  font-family: 'Montserrat', monospace; /* Fixed font-family syntax */
+  font-style: normal; /* Applied italic styling */
+  font-weight: bold; /* Applied bold styling */
   top: 500px; /* Adjust as necessary */
   left: 50px;
 }
@@ -45,6 +50,9 @@ body {
   font-size: 1.5rem;
   color: white;
   position: absolute;
+  font-family: 'Montserrat', monospace; /* Fixed font-family syntax */
+  font-style: normal; /* Applied italic styling */
+  font-weight: bold; /* Applied bold styling */
   top: 550px; /* Adjust as necessary */
   left: 50px;
 }
@@ -78,6 +86,8 @@ body {
   transform: translateX(-50%);
   font-size: 2rem;
   color: white;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Montserrat', monospace; /* Fixed font-family syntax */
+  font-style: normal; /* Applied italic styling */
+  font-weight: bold; /* Applied bold styling */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
