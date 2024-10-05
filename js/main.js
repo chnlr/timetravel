@@ -85,20 +85,23 @@ document.getElementById('time-machine').addEventListener('click', function(event
 // Track if past.js has been triggered
 let isPastTriggered = false;
 
-// Detect if the user clicked the "Previous" area
+// Handle click detection for the "Previous" area only
 document.getElementById('time-machine').addEventListener('click', function(event) {
   const rect = this.getBoundingClientRect();
-  const x = event.clientX - rect.left; // x position within the element
-  const y = event.clientY - rect.top;  // y position within the element
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
 
-  // Detect if the user clicked the "Previous" area (adjust coordinates as needed)
-  if (x >= 625 && x <= 674 && y >= 578 && y <= 620) {
-    // Load past.js every time the previous path is clicked
-    console.log("Loading past.js...");
-    loadPastScript(); // Always load past.js on every click
+  // Ensure only the "Previous" area triggers past.js
+  if (x >= 650 && x <= 675 && y >= 580 && y <= 619) {  // These are your "Previous" coordinates
+    console.log("Triggering past.js...");
+
+    // Load past.js dynamically and trigger captions only for "Previous"
+    loadPastScript(); // This ensures past.js loads every time "Previous" is clicked
+    return; // Make sure to return and not trigger other actions
   }
 });
 
+// Function to dynamically load past.js
 function loadPastScript() {
   const script = document.createElement('script');
   script.src = 'js/past.js'; // Load past.js dynamically
