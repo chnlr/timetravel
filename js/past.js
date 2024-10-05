@@ -2,8 +2,10 @@
 function handlePastPath() {
     const timeMachine = document.getElementById('time-machine');
   
-    // Check if the past path was clicked
     timeMachine.addEventListener('click', function(event) {
+      // Check if the story sequence is completed
+      if (!isStoryComplete) return; // Do nothing if the story hasn't completed
+  
       const rect = timeMachine.getBoundingClientRect();
       const x = event.clientX - rect.left; // x position within the element
       const y = event.clientY - rect.top;  // y position within the element
@@ -34,11 +36,11 @@ function handlePastPath() {
         pastCaption.style.bottom = '40px'; // Adjust position to the bottom
         pastCaption.style.left = '50%'; // Center horizontally
         pastCaption.style.transform = 'translateX(-50%)'; // Center the caption
-        pastCaption.style.fontSize = '2rem'; // Match previous captions
-        pastCaption.style.color = '#fff'; // White text
+        pastCaption.style.fontSize = '2rem';
+        pastCaption.style.color = '#fff';
         pastCaption.style.textAlign = 'center';
         pastCaption.style.opacity = '0';
-        pastCaption.style.transition = 'opacity 0.8s ease'; // Fade-in effect
+        pastCaption.style.transition = 'opacity 0.8s ease';
         document.body.appendChild(pastCaption);
   
         // Fade in the past caption
