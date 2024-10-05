@@ -28,55 +28,70 @@ document.getElementById('time-machine').addEventListener('click', function(event
     isScaled = true; // Mark the image as scaled
   } else {
     // Check if the current image is /images/timemachinemain.png
-    if (currentImageSrc.includes('timemachinemain.png')) {
-      // Region for /images/timemachinenew.png (NEW)
-      if (x >= 605 && x <= 640 && y >= 548 && y <= 572) {
-        this.src = 'images/timemachinenew.png'; // Change to new image
-        return;
-      }
-
-      // Region for /images/timemachinesave.png (SAVED)
-      if (x >= 615 && x <= 640 && y >= 572 && y <= 604) {
-        this.src = 'images/timemachinesave.png'; // Change to saved image
-        return;
-      }
-
-      // Region for /images/timemachineprevious.png (PAST)
-      if (x >= 650 && x <= 675 && y >= 580 && y <= 619) {
-        this.src = 'images/timemachineprevious.png'; // Change to previous image
-        return;
-      }
-
-      // Region for /images/timemachinemenu.png (MENU)
-      if (x >= 658 && x <= 688 && y >= 595 && y <= 620) {
-        this.src = 'images/timemachinemenu.png'; // Change to menu image
-        return;
-      }
+  if (currentImageSrc.includes('timemachinemain.png')) {
+    // Region for /images/timemachinenew.png (NEW)
+    if (x >= 605 && x <= 640 && y >= 548 && y <= 572) {
+      this.src = 'images/timemachinenew.png'; // Change to new image
+      return;
     }
 
-    // Check if the current image is /images/timemachinesave.png (SAVED)
-    if (currentImageSrc.includes('timemachinesave.png')) {
-      // Coordinates for saved.png
-      if (
-        (x >= 614 && x <= 662 && y >= 561 && y <= 624) || // Adjusted to match saved.png click area
-        (x >= 621 && x <= 654 && y >= 561 && y <= 601)
-      ) {
-        console.log("Saved area clicked!");
-        return;
-      }
+    // Region for /images/timemachinesave.png (SAVED)
+    if (x >= 615 && x <= 640 && y >= 572 && y <= 604) {
+      this.src = 'images/timemachinesave.png'; // Change to saved image
+      return;
     }
 
-    // Check if the current image is /images/timemachineprevious.png (PAST)
-    if (currentImageSrc.includes('timemachineprevious.png')) {
-      // Coordinates for past.png
-      if (
-        (x >= 626 && x <= 673 && y >= 578 && y <= 620) ||
-        (x >= 616 && x <= 665 && y >= 590 && y <= 616)
-      ) {
-        console.log("Past area clicked!");
-        return;
-      }
+    // Region for /images/timemachineprevious.png (PAST)
+    if (x >= 650 && x <= 675 && y >= 580 && y <= 619) {
+      this.src = 'images/timemachineprevious.png'; // Change to previous image
+      return;
     }
+
+    // Region for /images/timemachinemenu.png (MENU)
+    if (x >= 658 && x <= 688 && y >= 595 && y <= 620) {
+      this.src = 'images/timemachinemenu.png'; // Change to menu image
+      return;
+    }
+  }
+
+  // Check if the current image is /images/timemachinemenu.png (MENU)
+  if (currentImageSrc.includes('timemachinemenu.png')) {
+    // Region for /images/timemachinesettings.png (SETTINGS)
+    if (x >= 549 && x <= 663 && y >= 558 && y <= 624) {
+      this.src = 'images/timemachinesettings.png'; // Change to settings image
+      return;
+    }
+
+    // Region for /images/timemachinehelp.png (HELP)
+    if (x >= 540 && x <= 620 && y >= 520 && y <= 595) {
+      this.src = 'images/timemachinehelp.png'; // Change to help image
+      return;
+    }
+  }
+
+  // Check if the current image is /images/timemachinesave.png (SAVED)
+  if (currentImageSrc.includes('timemachinesave.png')) {
+    // Coordinates for saved.png
+    if (
+      (x >= 614 && x <= 662 && y >= 561 && y <= 624) ||
+      (x >= 621 && x <= 654 && y >= 561 && y <= 601)
+    ) {
+      console.log("Saved area clicked!");
+      return;
+    }
+  }
+
+  // Check if the current image is /images/timemachineprevious.png (PAST)
+  if (currentImageSrc.includes('timemachineprevious.png')) {
+    // Coordinates for past.png
+    if (
+      (x >= 626 && x <= 673 && y >= 578 && y <= 620) ||
+      (x >= 616 && x <= 665 && y >= 590 && y <= 616)
+    ) {
+      console.log("Past area clicked!");
+      return;
+    }
+  }
 
     // Check if the current image is /images/timemachinemenu.png (MENU)
     if (currentImageSrc.includes('timemachinemenu.png')) {
