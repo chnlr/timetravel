@@ -9,7 +9,7 @@ function handlePastPath() {
       "Wait... what?",
       "Isn't that when the Titanic sank?",
       "The... Alamo?",
-      "This can't be real",
+      "This can't be real...",
       "Should I go look?"
     ];
   

@@ -37,24 +37,32 @@ body {
 
 #caption {
   font-size: 2rem;
-  color: white;
   position: absolute;
   font-family: 'Montserrat', monospace; /* Fixed font-family syntax */
   font-style: normal; /* Applied italic styling */
   font-weight: bold; /* Applied bold styling */
-  top: 500px; /* Adjust as necessary */
-  left: 50px;
+  top: 85%;  /* Vertical center */
+  left: 30%; /* Move it slightly to the right */
+  transform: translate(-50%, -50%);
+  font-size: 2rem; /* Adjust as needed */
+  color: white;
+  text-align: center;
+  width: 100%;
 }
 
 #second-caption {
   font-size: 1.5rem;
-  color: white;
   position: absolute;
   font-family: 'Montserrat', monospace; /* Fixed font-family syntax */
   font-style: normal; /* Applied italic styling */
   font-weight: bold; /* Applied bold styling */
-  top: 550px; /* Adjust as necessary */
-  left: 50px;
+  top: 85%;  /* Vertical center */
+  left: 30%; /* Move it slightly to the right */
+  transform: translate(-50%, -50%);
+  font-size: 2rem; /* Adjust as needed */
+  color: white;
+  text-align: center;
+  width: 100%;
 }
 
 
@@ -90,4 +98,26 @@ body {
   font-style: normal; /* Applied italic styling */
   font-weight: bold; /* Applied bold styling */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Define the new background color class */
+.new-background-color {
+  background-color: #cb6060; /* You can replace this with any color */
+}
+
+/* Positioning and floating effect for the pen image */
+#floating-pen {
+  position: absolute;
+  top: 60%; /* Adjust the position relative to the parent container */
+  left: 50%; /* Center the pen horizontally */
+  transform: translate(-50%, 0); /* Adjust for perfect centering */
+  width: 150px; /* Adjust the size */
+  animation: float 6s ease-in-out infinite; /* Floating animation */
+  z-index: 1; /* Lower z-index to ensure it appears under the main image */
+}
+
+@keyframes float {
+  0% { transform: translate(-50%, 0px) rotate(0deg); }
+  50% { transform: translate(-50%, 15px) rotate(3deg); }
+  100% { transform: translate(-50%, 0px) rotate(0deg); }
 }

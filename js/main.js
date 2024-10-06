@@ -251,4 +251,39 @@ function loadNewStoryScript() {
   };
   document.body.appendChild(script);
 }
-    
+
+// Add a click event listener to handle clicks on saved.png
+document.getElementById('time-machine').addEventListener('click', function(event) {
+  const rect = this.getBoundingClientRect();
+  const x = event.clientX - rect.left; // x position within the element
+  const y = event.clientY - rect.top;  // y position within the element
+  const currentImageSrc = this.src;
+
+  // Ensure the code only applies to saved.png
+  if (currentImageSrc.includes('timemachinesave.png')) {
+    // Check if the click falls within the specified coordinates
+    if (
+      (x >= 637 && x <= 673 && y >= 532 && y <= 578)  // Adjust the range based on your specific coords
+    ) {
+      // Change to the new image
+      this.src = 'images/timemachine420.png';
+
+      // Change the background color of the page
+      document.body.classList.add('new-background-color');
+
+      // Create the floating image (timemachinepen.png)
+      const floatingPen = document.createElement('img');
+      floatingPen.src = 'images/timemachinepen.png';
+      floatingPen.id = 'floating-pen';
+      document.body.appendChild(floatingPen); // Append it to the body
+
+      // ** Adjust the positioning of the 420 image **
+      const mainImage = document.getElementById('time-machine');
+      mainImage.style.position = 'relative'; // Ensure the image is positioned
+      mainImage.style.top = '-90px'; // Adjust this value to move it higher up
+      mainImage.style.zIndex = '1'; // Ensure it remains on top
+
+      return;
+    }
+  }
+});
