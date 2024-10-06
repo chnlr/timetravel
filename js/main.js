@@ -287,3 +287,59 @@ document.getElementById('time-machine').addEventListener('click', function(event
     }
   }
 });
+
+// Track whether the "pushed" state is active or not
+let isPushed = false;
+
+// Add a click event listener to handle the toggle between main and pushed images
+document.getElementById('time-machine').addEventListener('click', function(event) {
+  const rect = this.getBoundingClientRect();
+  const x = event.clientX - rect.left; // x position within the element
+  const y = event.clientY - rect.top;  // y position within the element
+  const currentImageSrc = this.src;
+
+  // Ensure the code only applies to main.png or timemachinemainsimpushed.png
+  if (currentImageSrc.includes('timemachinemain.png') || currentImageSrc.includes('timemachinemainsimpushed.png')) {
+    // Check if the click falls within the specified coordinates
+    if (
+      (x >= 372 && x <= 630 && y >= 582 && y <= 650)  // Adjust the range based on your specific coords
+    ) {
+      // Toggle between main.png and timemachinemainsimpushed.png
+      if (!isPushed) {
+        this.src = 'images/timemachinemainsimpushed.png'; // Change to pushed image
+        isPushed = true;
+      } else {
+        this.src = 'images/timemachinemain.png'; // Change back to main image
+        isPushed = false;
+      }
+      return;
+    }
+  }
+  
+  // Ensure that all regions that work on main.png also work on timemachinemainsimpushed.png
+  if (currentImageSrc.includes('timemachinemain.png') || currentImageSrc.includes('timemachinemainsimpushed.png')) {
+    // Region for /images/timemachinenew.png (NEW)
+    if (x >= 605 && x <= 640 && y >= 548 && y <= 572) {
+      this.src = 'images/timemachinenew.png'; // Change to new image
+      return;
+    }
+
+    // Region for /images/timemachinesave.png (SAVED)
+    if (x >= 615 && x <= 640 && y >= 572 && y <= 604) {
+      this.src = 'images/timemachinesave.png'; // Change to saved image
+      return;
+    }
+
+    // Region for /images/timemachineprevious.png (PAST)
+    if (x >= 650 && x <= 675 && y >= 580 && y <= 619) {
+      this.src = 'images/timemachineprevious.png'; // Change to previous image
+      return;
+    }
+
+    // Region for /images/timemachinemenu.png (MENU)
+    if (x >= 658 && x <= 688 && y >= 595 && y <= 620) {
+      this.src = 'images/timemachinemenu.png'; // Change to menu image
+      return;
+    }
+  }
+});
