@@ -38,7 +38,10 @@ document.getElementById('time-machine').addEventListener('click', function(event
       }
 
       // Region for /images/timemachinesave.png (SAVED)
-      if (x >= 615 && x <= 640 && y >= 572 && y <= 604) {
+      if (
+        (x >= 618 && x <= 664 && y >= 560 && y <= 600) || // New rectangle coordinates for saved region
+        (x >= 637 && x <= 666 && y >= 576 && y <= 666)
+      ) {
         this.src = 'images/timemachinesave.png'; // Change to saved image
         clickedRegions.saved = true; // Mark 'saved' as clicked
         checkIfAllClicked(); // Check if all regions are clicked
@@ -46,7 +49,7 @@ document.getElementById('time-machine').addEventListener('click', function(event
       }
 
       // Region for /images/timemachineprevious.png (PAST)
-      if (x >= 650 && x <= 675 && y >= 580 && y <= 619) {
+      if (x >= 630 && x <= 670 && y >= 610 && y <= 635) {
         this.src = 'images/timemachineprevious.png'; // Change to previous image
         clickedRegions.past = true; // Mark 'past' as clicked
         checkIfAllClicked(); // Check if all regions are clicked
@@ -291,18 +294,18 @@ document.getElementById('time-machine').addEventListener('click', function(event
 // Track whether the "pushed" state is active or not
 let isPushed = false;
 
-// Add a click event listener to handle the toggle between main and pushed images
+// Add a click event listener to handle interactions
 document.getElementById('time-machine').addEventListener('click', function(event) {
   const rect = this.getBoundingClientRect();
   const x = event.clientX - rect.left; // x position within the element
   const y = event.clientY - rect.top;  // y position within the element
   const currentImageSrc = this.src;
 
-  // Ensure the code only applies to main.png or timemachinemainsimpushed.png
+  // Ensure the code applies to main.png or timemachinemainsimpushed.png
   if (currentImageSrc.includes('timemachinemain.png') || currentImageSrc.includes('timemachinemainsimpushed.png')) {
-    // Check if the click falls within the specified new coordinates
+    // Check if the click falls within the specified coordinates for main and pushed images
     if (
-      (x >= 372 && x <= 425 && y >= 582 && y <= 650)  // Updated range based on your specific coords
+      (x >= 372 && x <= 425 && y >= 582 && y <= 650)  // Adjust the range based on your specific coords
     ) {
       // Toggle between main.png and timemachinemainsimpushed.png
       if (!isPushed) {
@@ -318,27 +321,30 @@ document.getElementById('time-machine').addEventListener('click', function(event
 
   // Ensure that all regions that work on main.png also work on timemachinemainsimpushed.png
   if (currentImageSrc.includes('timemachinemain.png') || currentImageSrc.includes('timemachinemainsimpushed.png')) {
-    // Region for /images/timemachinenew.png (NEW)
-    if (x >= 605 && x <= 640 && y >= 548 && y <= 572) {
-      this.src = 'images/timemachinenew.png'; // Change to new image
-      return;
-    }
+    // Add your other region checks here (like new, saved, etc.)
+  }
 
-    // Region for /images/timemachinesave.png (SAVED)
-    if (x >= 615 && x <= 640 && y >= 572 && y <= 604) {
-      this.src = 'images/timemachinesave.png'; // Change to saved image
-      return;
-    }
+  // Check if the current image is /images/timemachine420.png
+  if (currentImageSrc.includes('timemachine420.png')) {
+    // Log the coordinates for debugging
+    console.log('Click coordinates relative to image: X:', x, 'Y:', y);
 
-    // Region for /images/timemachineprevious.png (PAST)
-    if (x >= 650 && x <= 675 && y >= 580 && y <= 619) {
-      this.src = 'images/timemachineprevious.png'; // Change to previous image
-      return;
-    }
+    // Check if the click falls within the specified coordinates for the 420 screen
+    if (
+      (x >= 400 && x <= 600 && y >= 600 && y <= 750) // Updated coordinates for lower down clicks
+    ) {
+      // Change back to main.png
+      this.src = 'images/timemachinemain.png';
 
-    // Region for /images/timemachinemenu.png (MENU)
-    if (x >= 658 && x <= 688 && y >= 595 && y <= 620) {
-      this.src = 'images/timemachinemenu.png'; // Change to menu image
+      // Remove the floating pen
+      const floatingPen = document.getElementById('floating-pen');
+      if (floatingPen) {
+        floatingPen.remove();
+      }
+
+      // Reset the background color to default
+      document.body.classList.remove('new-background-color'); // Assuming this removes the custom background
+
       return;
     }
   }
