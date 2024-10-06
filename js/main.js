@@ -315,7 +315,7 @@ document.getElementById('time-machine').addEventListener('click', function(event
       return;
     }
   }
-  
+
   // Ensure that all regions that work on main.png also work on timemachinemainsimpushed.png
   if (currentImageSrc.includes('timemachinemain.png') || currentImageSrc.includes('timemachinemainsimpushed.png')) {
     // Region for /images/timemachinenew.png (NEW)
@@ -341,5 +341,14 @@ document.getElementById('time-machine').addEventListener('click', function(event
       this.src = 'images/timemachinemenu.png'; // Change to menu image
       return;
     }
+  }
+
+  // Check if the current image is /images/timemachine420.png
+  if (currentImageSrc.includes('timemachine420.png')) {
+    // Log the coordinates for debugging
+    console.log('Click coordinates relative to image: X:', x, 'Y:', y);
+
+    // You can add additional logic here for handling clicks on the 420 screen
+    return;
   }
 });
