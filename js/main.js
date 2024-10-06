@@ -39,8 +39,7 @@ document.getElementById('time-machine').addEventListener('click', function(event
 
       // Region for /images/timemachinesave.png (SAVED)
       if (
-        (x >= 618 && x <= 664 && y >= 560 && y <= 600) || // New rectangle coordinates for saved region
-        (x >= 637 && x <= 666 && y >= 576 && y <= 666)
+        (x >= 618 && x <= 664 && y >= 561 && y <= 600) // Updated rectangle coordinates for saved region
       ) {
         this.src = 'images/timemachinesave.png'; // Change to saved image
         clickedRegions.saved = true; // Mark 'saved' as clicked
@@ -49,7 +48,9 @@ document.getElementById('time-machine').addEventListener('click', function(event
       }
 
       // Region for /images/timemachineprevious.png (PAST)
-      if (x >= 630 && x <= 670 && y >= 610 && y <= 635) {
+      if (
+        (x >= 628 && x <= 674 && y >= 578 && y <= 617) // Updated rectangle coordinates for past region
+      ) {
         this.src = 'images/timemachineprevious.png'; // Change to previous image
         clickedRegions.past = true; // Mark 'past' as clicked
         checkIfAllClicked(); // Check if all regions are clicked
