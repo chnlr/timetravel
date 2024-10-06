@@ -33,6 +33,10 @@ document.getElementById('time-machine').addEventListener('click', function(event
       if (x >= 605 && x <= 640 && y >= 548 && y <= 572) {
         this.src = 'images/timemachinenew.png'; // Change to new image
         clickedRegions.new = true; // Mark 'new' as clicked
+      
+        // Add this to load the new.js script dynamically
+        loadNewScript(); // This will load and trigger new.js
+      
         checkIfAllClicked(); // Check if all regions are clicked
         return;
       }
@@ -354,3 +358,16 @@ document.getElementById('time-machine').addEventListener('click', function(event
     return;
   }
 });
+
+// Dynamically load the new.js script
+function loadNewScript() {
+  const script = document.createElement('script');
+  script.src = 'js/new.js'; // Path to your new.js file
+  script.onload = function() {
+    console.log("new.js loaded successfully!");
+  };
+  script.onerror = function() {
+    console.error("Error loading new.js!");
+  };
+  document.body.appendChild(script);
+}

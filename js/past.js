@@ -10,7 +10,7 @@ function handlePastPath() {
       "Isn't that when the Titanic sank?",
       "The... Alamo?",
       "This can't be real...",
-      "Should I go look?"
+      "Thats is the Boston Tea Party?"
     ];
   
     // Pick a random phrase
