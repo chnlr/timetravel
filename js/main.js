@@ -300,9 +300,9 @@ document.getElementById('time-machine').addEventListener('click', function(event
 
   // Ensure the code only applies to main.png or timemachinemainsimpushed.png
   if (currentImageSrc.includes('timemachinemain.png') || currentImageSrc.includes('timemachinemainsimpushed.png')) {
-    // Check if the click falls within the specified coordinates
+    // Check if the click falls within the specified new coordinates
     if (
-      (x >= 372 && x <= 630 && y >= 582 && y <= 650)  // Adjust the range based on your specific coords
+      (x >= 372 && x <= 425 && y >= 582 && y <= 650)  // Updated range based on your specific coords
     ) {
       // Toggle between main.png and timemachinemainsimpushed.png
       if (!isPushed) {
