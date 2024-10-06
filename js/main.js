@@ -324,28 +324,23 @@ document.getElementById('time-machine').addEventListener('click', function(event
     // Add your other region checks here (like new, saved, etc.)
   }
 
-  // Check if the current image is /images/timemachine420.png
+  // Handle 420 screen clicks
   if (currentImageSrc.includes('timemachine420.png')) {
-    // Log the coordinates for debugging
     console.log('Click coordinates relative to image: X:', x, 'Y:', y);
+    
+    // Updated region for clicking on 420 screen to return to main.png
+    if ((x >= 400 && x <= 600 && y >= 600 && y <= 750)) {
+        this.src = 'images/timemachinemain.png';  // Change back to main.png
 
-    // Check if the click falls within the specified coordinates for the 420 screen
-    if (
-      (x >= 400 && x <= 600 && y >= 600 && y <= 750) // Updated coordinates for lower down clicks
-    ) {
-      // Change back to main.png
-      this.src = 'images/timemachinemain.png';
+        // Remove floating pen
+        const floatingPen = document.getElementById('floating-pen');
+        if (floatingPen) {
+            floatingPen.remove();
+        }
 
-      // Remove the floating pen
-      const floatingPen = document.getElementById('floating-pen');
-      if (floatingPen) {
-        floatingPen.remove();
-      }
-
-      // Reset the background color to default
-      document.body.classList.remove('new-background-color'); // Assuming this removes the custom background
-
-      return;
+        // Reset background color
+        document.body.classList.remove('new-background-color'); 
+        return;
     }
   }
 
